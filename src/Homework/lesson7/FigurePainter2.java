@@ -1,6 +1,6 @@
 package Homework.lesson7;
 
-public class FigureNew1 {
+public class FigurePainter2 {
     public static void main(String[] args) {
         for (int i = 1; i < 5; i++) {
             for (int j = 5; j >= i; j--) {
