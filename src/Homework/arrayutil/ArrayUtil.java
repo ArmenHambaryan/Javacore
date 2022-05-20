@@ -45,7 +45,7 @@ public class ArrayUtil {
 
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0) {
-                System.out.println(array[i]);
+                System.out.println("zuy tver "+array[i]);
             }
         }
 
@@ -55,20 +55,22 @@ public class ArrayUtil {
                 System.out.println("kent tver" + array[i]);
             }
         }
+
         int k = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0) {
                 k++;
             }
-        }
-        System.out.print(k);
+        }System.out.print("zuygeri qanaky "+k);
+        System.out.println();
+
 
         int c = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 != 0) {
-                k++;
+                c++;
             }
         }
-        System.out.println(k);
+        System.out.print("kenteri qanaky "+c);
     }
 }

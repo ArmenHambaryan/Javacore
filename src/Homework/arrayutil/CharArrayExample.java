@@ -16,7 +16,7 @@ public class CharArrayExample {
         char[] chars2 = {'j', 'a', 'v', 'a', 'l', 'o', 'v', 'l', 'y'};
         System.out.println(chars2[chars.length / 2] + " " + chars2[chars.length / 2 + 1]);
 
-//տպենք true եթե մեր մասիվը վերջանում է ly-ով, եթե ոչ՝ false
+// տպենք true եթե մեր մասիվը վերջանում է ly-ով, եթե ոչ՝ false
         char[] chars3 = {'j', 'a', 'v', 'a', 'l', 'o', 'l', 'y'};
         boolean a1 = true;
         boolean b = false;
@@ -25,7 +25,7 @@ public class CharArrayExample {
         } else {
             System.out.println(b);
         }
-//Տպում ենք true եթե տեքստը պարունակում է bob բառը, բայց o-ի տեղը կարող է լինել ցանկացած սինվոլ։
+// Տպում ենք true եթե տեքստը պարունակում է bob բառը, բայց o-ի տեղը կարող է լինել ցանկացած սինվոլ։
         char[] bobarray = {'b', 'a', 'b', 'o', 'l', 'e'};
         boolean d = false;
         for (int i = 0; i < bobarray.length - 2; i++) {
@@ -36,7 +36,7 @@ public class CharArrayExample {
 
         }
         System.out.println(d);
-//  տպել մասիվի այն սինվոլները որոնք պռաբել չեն.
+// տպել մասիվի այն սինվոլները որոնք պռաբել չեն.
         char[] text = {' ', ' ', 'b', 'a', 'r', 'e', 'v', ' ', ' '};
         for (int i = 0; i < text.length; i++) {
             if (text[i] != ' ')
