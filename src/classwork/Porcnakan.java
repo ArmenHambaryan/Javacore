@@ -1,26 +1,34 @@
 package classwork;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-
-import javax.swing.plaf.basic.BasicRadioButtonMenuItemUI;
 
 public class Porcnakan {
     public static void main(String[] args) {
-        char[] chars = {' ', 'j', 'a', 'v', 'a', 'l', 'o', 'v', 'l', 'y'};
-      for (int i = 0; i < chars.length; i++) {
+        int a = 0;
+        int[] number = {95, 52, 34, 79, 23, 84, 98, 32, 94, 41,};
+        for (int i = 0; i < number.length; i++) {
+            for (int j = i+1; j < number.length ; j++) {
+                if (number[i]>number[j]){
+                    a=number[i];
+                    number[i]=number[j];
+                    number[j]=a;
+                }
 
-        }System.out.println(chars[chars.length/2] +" "+chars[chars.length/2+1]);
-//        for (int i = 0; i < chars.length; i++) {
-//            if (chars[i]!=' ')
-//                System.out.print(chars[i]);
+            }System.out.println(number[i]);
 
-        // }
-
-
+        }
 
     }
-
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
