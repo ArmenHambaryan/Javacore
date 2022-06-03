@@ -34,7 +34,7 @@ public class PracticeHomework {
         if (value == true) {
             return false;
         } else
-            return false;
+            return true;
 
     }
 
