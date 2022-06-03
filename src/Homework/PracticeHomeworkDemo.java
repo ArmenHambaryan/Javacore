@@ -8,7 +8,7 @@ public class PracticeHomeworkDemo {
         System.out.println("numbers = " + work.nextnumber(2));
         System.out.println(work.isSameNum(10, 10));
         System.out.println(work.lessThanOrEqualToZero(-1));
-        System.out.println(work.reverseBool(true));
+        System.out.println(work.reverseBool(false));
         int[] array1 = new int[15];
         int[] array2 = new int[200];
         System.out.println(work.maxLenght(array1, array2));
