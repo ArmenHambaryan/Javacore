@@ -1,6 +1,4 @@
-package Homework.lesson11;
-
-import javafx.scene.layout.HBox;
+package Homework.lesson11chapter6;
 
 public class Box {
     double width;

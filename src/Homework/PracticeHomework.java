@@ -4,16 +4,19 @@ public class PracticeHomework {
     long convert(int minutes) {
         minutes = minutes * 60;
         return minutes;
+        // return minutes*60;
     }
 
     int calcage(int years) {
         years = years * 365;
         return years;
+        //return years*365;
     }
 
     int nextnumber(int numbers) {
         numbers = numbers + 1;
         return numbers;
+        //return numbers+1;
     }
 
     boolean isSameNum(int a, int b) {
@@ -21,6 +24,7 @@ public class PracticeHomework {
             return true;
         } else
             return false;
+
     }
 
     boolean lessThanOrEqualToZero(int number) {
@@ -35,6 +39,7 @@ public class PracticeHomework {
             return false;
         } else
             return true;
+        //return !value;
 
     }
 
