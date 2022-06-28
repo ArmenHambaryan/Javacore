@@ -1,5 +1,7 @@
 package classwork.Students;
 
+import com.sun.org.apache.xpath.internal.objects.XString;
+
 public class StudentStorage {
     private Student[] array = new Student[10];
     private int size = 0;
@@ -32,7 +34,7 @@ public class StudentStorage {
     public void delete(int index) {
         if (index >= 0 && index < size) {
             for (int i = index; i < size; i++) {
-                array[index] = array[index + 1];
+                array[i] = array[i + 1];
 
             }
             size--;
@@ -44,10 +46,17 @@ public class StudentStorage {
 
     public void printStudentsByLesson(String lessonName) {
         for (int i = 0; i < size; i++) {
-            if (array[i].getLesson().equals(lessonName)){
+            if (array[i].getLesson().equals(lessonName)) {
                 System.out.println(array[i]);
             }
 
         }
     }
+public Student getStudentByIndex(int index){
+    if (index >= 0 && index < size){
+        return array[index];
+    }
+    return null;
+}
+
 }
