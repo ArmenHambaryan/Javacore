@@ -35,7 +35,8 @@ public class BooksDemo implements commands {
                     printBooksByPriceRange();
                     break;
 
-
+                default:
+                    System.out.println("invalid command");
             }
 
         }
