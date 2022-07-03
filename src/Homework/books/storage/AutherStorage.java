@@ -1,26 +1,28 @@
-package classwork.Students;
+package Homework.books.storage;
 
-import com.sun.org.apache.xpath.internal.objects.XString;
 
-public class StudentStorage {
-    private Student[] array = new Student[10];
+import Homework.books.modul.Auther;
+
+public class AutherStorage {
+    private Auther[] array = new Auther[10];
     private int size = 0;
 
-    public void add(Student student) {
+    public void add(Auther auther) {
         if (array.length == size) {
             extend();
         }
-        array[size++] = student;
+        array[size++] = auther;
     }
 
     public void print() {
         for (int i = 0; i < size; i++) {
             System.out.println(i + ". " + array[i] + " ");
         }
+
     }
 
     private void extend() {
-        Student[] temp = new Student[array.length + 10];
+        Auther[] temp = new Auther[array.length + 10];
         for (int i = 0; i < array.length; i++) {
             temp[i] = array[i];
         }
@@ -38,25 +40,19 @@ public class StudentStorage {
 
             }
             size--;
-            System.out.println("student deleted");
+            System.out.println("auther deleted");
         } else {
             System.out.println("index out of bounds");
         }
     }
 
-    public void printStudentsByLesson(String lessonName) {
-        for (int i = 0; i < size; i++) {
-            if (array[i].getLesson().equals(lessonName)) {
-                System.out.println(array[i]);
-            }
 
+    public Auther getAutherByIndex(int index) {
+        if (index >= 0 && index < size) {
+            return array[index];
         }
+        return null;
     }
-public Student getStudentByIndex(int index){
-    if (index >= 0 && index < size){
-        return array[index];
-    }
-    return null;
-}
+
 
 }

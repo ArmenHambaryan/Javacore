@@ -1,15 +1,15 @@
-package Homework.books;
+package Homework.books.modul;
 
 public class Books {
     private String title;
-    private String authorName;
+    private Auther auther;
     private double price;
     private int count;
     private String genre;
 
-    public Books(String title, String authorName, double price, int count, String genre) {
+    public Books(String title, Auther auther, double price, int count, String genre) {
         this.title = title;
-        this.authorName = authorName;
+        this.auther = auther;
         this.price = price;
         this.count = count;
         this.genre = genre;
@@ -26,12 +26,17 @@ public class Books {
         this.title = title;
     }
 
-    public String getAuthorName() {
-        return authorName;
+    public Auther getAuther() {
+        return auther;
     }
 
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
+    public void setAuther(Auther auther) {
+        this.auther = auther;
+    }
+
+
+    public void setAuthorName(Auther auther) {
+        this.auther = auther;
     }
 
     public double getPrice() {
@@ -62,7 +67,7 @@ public class Books {
     public String toString() {
         return "Books{" +
                 "title='" + title + '\'' +
-                ", authorName='" + authorName + '\'' +
+                ", authorName='" + auther + '\'' +
                 ", price=" + price +
                 ", count=" + count +
                 ", genre='" + genre + '\'' +

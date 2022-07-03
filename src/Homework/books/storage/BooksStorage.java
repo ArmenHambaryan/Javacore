@@ -1,5 +1,7 @@
-package Homework.books;
+package Homework.books.storage;
 
+
+import Homework.books.modul.Books;
 
 public class BooksStorage {
     private Books[] array = new Books[10];
@@ -60,9 +62,9 @@ public class BooksStorage {
         return null;
     }
 
-    public void printByAutherName(String name) {
+    public void printByAuther(String name) {
         for (int i = 0; i < size; i++) {
-            if (array[i].getAuthorName().equals(name)) {
+            if (array[i].getAuther().equals(name)) {
                 System.out.println(array[i]);
             }
 
