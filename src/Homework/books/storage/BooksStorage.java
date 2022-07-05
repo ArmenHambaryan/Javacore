@@ -1,7 +1,7 @@
 package Homework.books.storage;
 
 
-import Homework.books.modul.Books;
+import Homework.books.model.Books;
 
 public class BooksStorage {
     private Books[] array = new Books[10];
@@ -72,7 +72,7 @@ public class BooksStorage {
     }
 
 
-    public void printBooksByPriceRange(double min, double max) {
+    public void printBooksByPriceRange(double min, double max){
         for (int i = 0; i < size; i++) {
             if (array[i].getPrice() >= min &&array[i].getPrice() <= max){
                 System.out.println(array[i]);

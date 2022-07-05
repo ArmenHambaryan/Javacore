@@ -1,4 +1,4 @@
-package Homework.books.modul;
+package Homework.books.model;
 
 public class Auther {
     String name;

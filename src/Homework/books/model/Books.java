@@ -1,4 +1,4 @@
-package Homework.books.modul;
+package Homework.books.model;
 
 public class Books {
     private String title;

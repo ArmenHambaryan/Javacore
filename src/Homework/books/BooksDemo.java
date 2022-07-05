@@ -1,8 +1,9 @@
 package Homework.books;
 
 import Homework.books.commands.commands;
-import Homework.books.modul.Auther;
-import Homework.books.modul.Books;
+import Homework.books.exception.AuthorNotFaundException;
+import Homework.books.model.Auther;
+import Homework.books.model.Books;
 import Homework.books.storage.AutherStorage;
 import Homework.books.storage.BooksStorage;
 
@@ -17,7 +18,13 @@ public class BooksDemo implements commands {
         boolean run = true;
         while (run) {
             commands.printcommands();
-            int command = Integer.parseInt(scanner.nextLine());
+            int command;
+            try {
+                command = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                command = -1;
+            }
+
             switch (command) {
                 case EXIT:
                     run = false;
@@ -37,9 +44,9 @@ public class BooksDemo implements commands {
                 case PRINT_BOOKS_BY_PRICE_RANGE:
                     printBooksByPriceRange();
                     break;
-                    case ADD_AUTHER:
-                        addauther();
-                        break;
+                case ADD_AUTHER:
+                    addauther();
+                    break;
                 case PRINT_ALL_AUTHERS:
                     autherStorage.print();
                     break;
@@ -64,25 +71,32 @@ public class BooksDemo implements commands {
 
         System.out.println("pleas input auther gender");
         String gender = scanner.nextLine();
-        if ("female".equals(gender) || " male".equals(gender)){
+        if ("female".equals(gender) || " male".equals(gender)) {
 
-        }else {
+        } else {
             System.err.println("mistake");
             addauther();
         }
 
-        Auther auther = new Auther(name,surname,email,gender);
+        Auther auther = new Auther(name, surname, email, gender);
         autherStorage.add(auther);
         System.out.println("auther created");
     }
 
 
     private static void printBooksByPriceRange() {
-        System.out.println("please input min price");
-        double max = Double.parseDouble(scanner.nextLine());
-        System.out.println("please input max price");
-        double min = Double.parseDouble(scanner.nextLine());
-        booksStorage.printBooksByPriceRange(min,max);
+        try {
+            System.out.println("please input min price");
+            double max = Double.parseDouble(scanner.nextLine());
+            System.out.println("please input max price");
+            double min = Double.parseDouble(scanner.nextLine());
+            booksStorage.printBooksByPriceRange(min, max);
+        } catch (NumberFormatException e) {
+            System.err.println("use only numbers");
+            printBooksByPriceRange();
+        }
+
+
     }
 
 
@@ -99,18 +113,15 @@ public class BooksDemo implements commands {
     }
 
     private static void addbook() {
-        if (autherStorage.getSize()==0){
+        if (autherStorage.getSize() == 0) {
             System.out.println("please add auther");
             addauther();
-        }else {
+        } else {
             autherStorage.print();
             System.out.println("please choose auther index");
-            int autherindex=Integer.parseInt(scanner.nextLine());
-            Auther auther = autherStorage.getAutherByIndex(autherindex);
-            if (auther==null){
-                System.out.println("please input corect index");
-                addbook();
-            }else {
+            int autherindex = Integer.parseInt(scanner.nextLine());
+            try {
+                Auther auther = autherStorage.getAutherByIndex(autherindex);
                 System.out.println("pleas input books title name");
                 String title = scanner.nextLine();
                 System.out.println("please input books price");
@@ -126,6 +137,11 @@ public class BooksDemo implements commands {
                 Books books = new Books(title, auther, price, count, genre);
                 booksStorage.add(books);
                 System.out.println("thanks for added");
+            } catch (AuthorNotFaundException e) {
+                System.out.println(e.getMessage());
+                addauther();
+
+
             }
         }
 

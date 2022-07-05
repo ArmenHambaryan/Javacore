@@ -1,5 +1,6 @@
 package classwork.Students.storage;
 
+import classwork.Students.exception.LessonNotFoundException;
 import classwork.Students.modul.Lesson;
 
 
@@ -45,11 +46,11 @@ public class LessonStorage {
         }
     }
 
-public Lesson getLessonByIndex(int index){
+public Lesson getLessonByIndex(int index) throws LessonNotFoundException {
     if (index >= 0 && index < size){
         return array[index];
-    }
-    return null;
+    }else
+        throw new LessonNotFoundException("lesson with"+index+"index does not exist");
 }
 
 }

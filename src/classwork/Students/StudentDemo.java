@@ -1,6 +1,7 @@
 package classwork.Students;
 
 import classwork.Students.commands.commands;
+import classwork.Students.exception.LessonNotFoundException;
 import classwork.Students.modul.Lesson;
 import classwork.Students.modul.Student;
 import classwork.Students.storage.LessonStorage;
@@ -17,7 +18,13 @@ public class StudentDemo implements commands {
         boolean run = true;
         while (run) {
             commands.printcommands();
-            int command = Integer.parseInt(scanner.nextLine());
+            int command;
+            try {
+                command = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                command = -1;
+            }
+
             switch (command) {
                 case EXIT:
                     run = false;
@@ -59,7 +66,7 @@ public class StudentDemo implements commands {
         String name = scanner.nextLine();
 
         System.out.println("please input lesson price");
-        Double price =Double.parseDouble(scanner.nextLine());
+        Double price = Double.parseDouble(scanner.nextLine());
 
         System.out.println("please input teacherName");
         String teacherName = scanner.nextLine();
@@ -67,7 +74,7 @@ public class StudentDemo implements commands {
         System.out.println("please input lesson duration by month");
         int duration = Integer.parseInt(scanner.nextLine());
 
-        Lesson lesson = new Lesson(name,price,teacherName,duration);
+        Lesson lesson = new Lesson(name, price, teacherName, duration);
         lessonStorage.add(lesson);
         System.out.println("lesson created");
 
@@ -95,16 +102,16 @@ public class StudentDemo implements commands {
         if (student != null) {
             lessonStorage.print();
             System.out.println("please choose lesson index");
-            int lessonIndex=Integer.parseInt(scanner.nextLine());
-            Lesson lesson= lessonStorage.getLessonByIndex(lessonIndex);
-            if (lesson==null){
-                System.out.println("please input corect index");
-                changeStudentLesson();
-            }else {
+            int lessonIndex = Integer.parseInt(scanner.nextLine());
+            try {
+                Lesson lesson = lessonStorage.getLessonByIndex(lessonIndex);
                 student.setLesson(lesson);
                 System.out.println("lesson changed!");
+            } catch (LessonNotFoundException e) {
+                System.out.println(e.getMessage());
+                changeStudentLesson();
             }
-        }else {
+        } else {
             System.out.println("invalid index please try again");
             changeStudentLesson();
 
@@ -112,18 +119,15 @@ public class StudentDemo implements commands {
     }
 
     private static void addStudent() {
-        if (lessonStorage.getSize()==0) {
+        if (lessonStorage.getSize() == 0) {
             System.out.println("please add Lesson");
             addLesson();
-        }else {
+        } else {
             lessonStorage.print();
             System.out.println("please choose lesson index");
-            int lessonIndex=Integer.parseInt(scanner.nextLine());
-            Lesson lesson= lessonStorage.getLessonByIndex(lessonIndex);
-            if (lesson==null){
-                System.out.println("please input corect index");
-                addStudent();
-            }else {
+            int lessonIndex = Integer.parseInt(scanner.nextLine());
+            try {
+                Lesson lesson = lessonStorage.getLessonByIndex(lessonIndex);
                 System.out.println("please input student name");
                 String name = scanner.nextLine();
                 System.out.println("please input student surname");
@@ -135,16 +139,21 @@ public class StudentDemo implements commands {
                 System.out.println("please input student city");
                 String city = scanner.nextLine();
 
-
                 int age = Integer.parseInt(ageStr);
                 Student student = new Student(name, surnam, age, phoneNumber, city, lesson);
                 studentStorage.add(student);
                 System.out.println("thank you,student added");
+            } catch (LessonNotFoundException e) {
+                System.out.println(e.getMessage());
+                addStudent();
+
             }
 
         }
 
-
     }
+
+
 }
+
 
