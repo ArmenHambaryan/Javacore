@@ -1,7 +1,7 @@
 package Homework.books;
 
 import Homework.books.commands.commands;
-import Homework.books.exception.AuthorNotFaundException;
+import Homework.books.exception.AutherNotFaundException;
 import Homework.books.model.Auther;
 import Homework.books.model.Books;
 import Homework.books.storage.AutherStorage;
@@ -137,9 +137,10 @@ public class BooksDemo implements commands {
                 Books books = new Books(title, auther, price, count, genre);
                 booksStorage.add(books);
                 System.out.println("thanks for added");
-            } catch (AuthorNotFaundException e) {
+            } catch (AutherNotFaundException e) {
                 System.out.println(e.getMessage());
-                addauther();
+                addbook();
+
 
 
             }

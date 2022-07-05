@@ -1,7 +1,7 @@
 package Homework.books.storage;
 
 
-import Homework.books.exception.AuthorNotFaundException;
+import Homework.books.exception.AutherNotFaundException;
 import Homework.books.model.Auther;
 
 public class AutherStorage {
@@ -48,11 +48,11 @@ public class AutherStorage {
     }
 
 
-    public Auther getAutherByIndex(int index) throws AuthorNotFaundException {
+    public Auther getAutherByIndex(int index) throws AutherNotFaundException {
         if (index >= 0 && index < size) {
             return array[index];
         }else
-            throw new AuthorNotFaundException("Auther with "+index+" index does not exist");
+            throw new AutherNotFaundException("Auther with "+index+" index does not exist");
     }
 
 
