@@ -15,6 +15,7 @@ public class StudentDemo implements commands {
     private static LessonStorage lessonStorage = new LessonStorage();
 
     public static void main(String[] args) {
+        login();
         boolean run = true;
         while (run) {
             commands.printcommands();
@@ -59,6 +60,21 @@ public class StudentDemo implements commands {
         }
 
 
+    }
+
+    private static void login() {
+        String login = "student";
+        String password="123456";
+        System.out.println("please input login");
+        if (!login.equals(scanner.nextLine())){
+            System.out.println("wrrong login");
+            login();
+        }
+        System.out.println("please input password");
+        if (!password.equals(scanner.nextLine())){
+            System.out.println("wrrong password");
+            return;
+        }
     }
 
     private static void addLesson() {

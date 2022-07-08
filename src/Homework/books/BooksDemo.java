@@ -72,7 +72,7 @@ public class BooksDemo implements commands {
         System.out.println("please input password ");
         if (!password.equals(scanner.nextLine())) {
             System.err.println("wrrong password");
-            login();
+            return;
         }
 
 
