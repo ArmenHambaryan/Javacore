@@ -66,12 +66,12 @@ public class BooksDemo implements commands {
         String password = "123456";
         System.out.println("please input login");
         if (!login.equals(scanner.nextLine())) {
-            System.err.println("wrong login");
+            System.err.println("wrrong login");
             login();
         }
         System.out.println("please input password ");
         if (!password.equals(scanner.nextLine())) {
-            System.err.println("wrong password");
+            System.err.println("wrrong password");
             login();
         }
 
@@ -88,22 +88,20 @@ public class BooksDemo implements commands {
 
         System.out.println("please input auther email");
         String email = scanner.nextLine();
-try
-{
-        System.out.println("pleas input auther gender");
-        Gender gender = Gender.valueOf(scanner.nextLine().toUpperCase());
+        try {
+            System.out.println("pleas input auther gender");
+            Gender gender = Gender.valueOf(scanner.nextLine().toUpperCase());
+            Auther auther = new Auther(name, surname, email, gender);
+            autherStorage.add(auther);
+            System.out.println("auther created");
 
-        }catch (IllegalArgumentException e){
-    System.out.println("please input corect gender");
-    addbook();
+        } catch (IllegalArgumentException e) {
+            System.out.println("please input corect gender");
+            addbook();
         }
 
 
-        Auther auther = new Auther(name, surname, email, Gender.MALE);
-        autherStorage.add(auther);
-        System.out.println("auther created");
-        }
-
+    }
 
 
     private static void printBooksByPriceRange() {
