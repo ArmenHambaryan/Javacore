@@ -4,6 +4,7 @@ import Homework.books.commands.commands;
 import Homework.books.exception.AutherNotFaundException;
 import Homework.books.model.Auther;
 import Homework.books.model.Books;
+import Homework.books.model.Gender;
 import Homework.books.storage.AutherStorage;
 import Homework.books.storage.BooksStorage;
 
@@ -15,6 +16,7 @@ public class BooksDemo implements commands {
     private static AutherStorage autherStorage = new AutherStorage();
 
     public static void main(String[] args) {
+        login();
         boolean run = true;
         while (run) {
             commands.printcommands();
@@ -59,6 +61,24 @@ public class BooksDemo implements commands {
 
     }
 
+    private static void login() {
+        String login = "auther";
+        String password = "123456";
+        System.out.println("please input login");
+        if (!login.equals(scanner.nextLine())) {
+            System.err.println("wrong login");
+            login();
+        }
+        System.out.println("please input password ");
+        if (!password.equals(scanner.nextLine())) {
+            System.err.println("wrong password");
+            login();
+        }
+
+
+    }
+
+
     private static void addauther() {
         System.out.println("please input auther name");
         String name = scanner.nextLine();
@@ -68,20 +88,22 @@ public class BooksDemo implements commands {
 
         System.out.println("please input auther email");
         String email = scanner.nextLine();
-
+try
+{
         System.out.println("pleas input auther gender");
-        String gender = scanner.nextLine();
-        if ("female".equals(gender) || " male".equals(gender)) {
+        Gender gender = Gender.valueOf(scanner.nextLine().toUpperCase());
 
-        } else {
-            System.err.println("mistake");
-            addauther();
+        }catch (IllegalArgumentException e){
+    System.out.println("please input corect gender");
+    addbook();
         }
 
-        Auther auther = new Auther(name, surname, email, gender);
+
+        Auther auther = new Auther(name, surname, email, Gender.MALE);
         autherStorage.add(auther);
         System.out.println("auther created");
-    }
+        }
+
 
 
     private static void printBooksByPriceRange() {
@@ -140,7 +162,6 @@ public class BooksDemo implements commands {
             } catch (AutherNotFaundException e) {
                 System.out.println(e.getMessage());
                 addbook();
-
 
 
             }
