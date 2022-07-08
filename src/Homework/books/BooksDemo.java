@@ -90,7 +90,7 @@ public class BooksDemo implements commands {
         String email = scanner.nextLine();
         try {
             System.out.println("pleas input auther gender");
-            Gender gender = Gender.valueOf(scanner.nextLine().toUpperCase());
+            Gender gender = Gender.valueOf(scanner.nextLine().toUpperCase().trim());
             Auther auther = new Auther(name, surname, email, gender);
             autherStorage.add(auther);
             System.out.println("auther created");
