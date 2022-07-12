@@ -1,20 +1,21 @@
 package Homework.books.model;
 
-public class Auther {
-    String name;
-    String surname;
-    String email;
-    Gender gender;
+public class User {
+    private String name;
+    private String surname;
+    private String email;
+    private String password;
+    private UserType userType;
 
-
-    public Auther(String name, String surname, String email, Gender gender) {
+    public User(String name, String surname, String email, String password, UserType userType) {
         this.name = name;
         this.surname = surname;
         this.email = email;
-        this.gender = gender;
+        this.password = password;
+        this.userType = userType;
     }
 
-    public Auther() {
+    public User() {
     }
 
     public String getName() {
@@ -41,21 +42,29 @@ public class Auther {
         this.email = email;
     }
 
-    public Gender getGender() {
-        return gender;
+    public String getPassword() {
+        return password;
     }
 
-    public void setGender(Gender gender) {
-        this.gender = gender;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public UserType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(UserType userType) {
+        this.userType = userType;
     }
 
     @Override
     public String toString() {
-        return "Auther{" +
+        return "User{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
-                ", gender=" + gender +
+                ", userType=" + userType +
                 '}';
     }
 }

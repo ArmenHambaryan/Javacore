@@ -2,17 +2,17 @@ package Homework.books.storage;
 
 
 import Homework.books.exception.AutherNotFaundException;
-import Homework.books.model.Auther;
+import Homework.books.model.Author;
 
 public class AutherStorage {
-    private Auther[] array = new Auther[10];
+    private Author[] array = new Author[10];
     private int size = 0;
 
-    public void add(Auther auther) {
+    public void add(Author author) {
         if (array.length == size) {
             extend();
         }
-        array[size++] = auther;
+        array[size++] = author;
     }
 
     public void print() {
@@ -23,7 +23,7 @@ public class AutherStorage {
     }
 
     private void extend() {
-        Auther[] temp = new Auther[array.length + 10];
+        Author[] temp = new Author[array.length + 10];
         for (int i = 0; i < array.length; i++) {
             temp[i] = array[i];
         }
@@ -48,7 +48,7 @@ public class AutherStorage {
     }
 
 
-    public Auther getAutherByIndex(int index) throws AutherNotFaundException {
+    public Author getAutherByIndex(int index) throws AutherNotFaundException {
         if (index >= 0 && index < size) {
             return array[index];
         }else

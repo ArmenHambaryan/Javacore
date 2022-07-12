@@ -1,28 +1,27 @@
-package Homework.books.storage;
+package classwork.Students.storage;
 
+import classwork.Students.modul.User;
+import classwork.Students.modul.User;
 
-import Homework.books.model.Books;
-
-public class BooksStorage {
-    private Books[] array = new Books[10];
+public class UserStorage {
+    private User[] array = new User[10];
     private int size = 0;
 
-    public void add(Books books) {
+    public void add(User user) {
         if (array.length == size) {
             extend();
         }
-        array[size++] = books;
+        array[size++] = user;
     }
 
     public void print() {
         for (int i = 0; i < size; i++) {
             System.out.println(i + ". " + array[i] + " ");
         }
-
     }
 
     private void extend() {
-        Books[] temp = new Books[array.length + 10];
+        User[] temp = new User[array.length + 10];
         for (int i = 0; i < array.length; i++) {
             temp[i] = array[i];
         }
@@ -44,40 +43,27 @@ public class BooksStorage {
         } else {
             System.out.println("index out of bounds");
         }
+
     }
 
-    public void printBookssByGenre(String Genre) {
-        for (int i = 0; i < size; i++) {
-            if (array[i].getGenre().equals(Genre)) {
-                System.out.println(array[i]);
-            }
-
-        }
+    public int getsize() {
+        return size;
     }
 
-    public Books getBooksByIndex(int index) {
+    public User getUserByIndex(int index) {
         if (index >= 0 && index < size) {
             return array[index];
         }
         return null;
     }
 
-    public void printByAuther(String name) {
+    public User getUserByEmail(String email) {
         for (int i = 0; i < size; i++) {
-            if (array[i].getAuthor().equals(name)) {
-                System.out.println(array[i]);
-            }
-
-        }
-    }
-
-
-    public void printBooksByPriceRange(double min, double max){
-        for (int i = 0; i < size; i++) {
-            if (array[i].getPrice() >= min &&array[i].getPrice() <= max){
-                System.out.println(array[i]);
+            if (array[i].getEmail().equals(email)) {
+                return array[i];
             }
         }
-
+        return null;
     }
+
 }

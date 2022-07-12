@@ -2,17 +2,19 @@ package Homework.books.model;
 
 public class Books {
     private String title;
-    private Auther auther;
+    private Author author;
     private double price;
     private int count;
     private String genre;
+    private User registeredUser;
 
-    public Books(String title, Auther auther, double price, int count, String genre) {
+    public Books(String title, Author author, double price, int count, String genre,User registeredUser) {
         this.title = title;
-        this.auther = auther;
+        this.author = author;
         this.price = price;
         this.count = count;
         this.genre = genre;
+        this.registeredUser = registeredUser;
     }
 
     public Books() {
@@ -26,17 +28,17 @@ public class Books {
         this.title = title;
     }
 
-    public Auther getAuther() {
-        return auther;
+    public Author getAuthor() {
+        return author;
     }
 
-    public void setAuther(Auther auther) {
-        this.auther = auther;
+    public void setAuther(Author author) {
+        this.author = author;
     }
 
 
-    public void setAuthorName(Auther auther) {
-        this.auther = auther;
+    public void setAuthorName(Author author) {
+        this.author = author;
     }
 
     public double getPrice() {
@@ -63,14 +65,23 @@ public class Books {
         this.genre = genre;
     }
 
+    public User getRegisteredUser() {
+        return registeredUser;
+    }
+
+    public void setRegisteredUser(User registeredUser) {
+        this.registeredUser = registeredUser;
+    }
+
     @Override
     public String toString() {
         return "Books{" +
                 "title='" + title + '\'' +
-                ", authorName='" + auther + '\'' +
+                ", authorName='" + author + '\'' +
                 ", price=" + price +
                 ", count=" + count +
                 ", genre='" + genre + '\'' +
+                ", registeredUser='" + registeredUser+ '\'' +
                 '}';
     }
 }
