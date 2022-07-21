@@ -10,7 +10,10 @@ import classwork.Students.storage.LessonStorage;
 import classwork.Students.storage.StudentStorage;
 import classwork.Students.storage.UserStorage;
 
+import java.util.Date;
 import java.util.Scanner;
+
+import static classwork.Students.util.DateUtil.stringToDate;
 
 public class StudentDemo implements commands {
     private static Scanner scanner = new Scanner(System.in);
@@ -197,8 +200,9 @@ public class StudentDemo implements commands {
 
         System.out.println("please input lesson duration by month");
         int duration = Integer.parseInt(scanner.nextLine());
-
-        Lesson lesson = new Lesson(name, price, teacherName, duration);
+        System.out.println("input lesson start day (14/04/2022)");
+        String strdate = scanner.nextLine();
+        Lesson lesson = new Lesson(name, price, teacherName, duration,stringToDate(strdate));
         lessonStorage.add(lesson);
         System.out.println("lesson created");
 
@@ -264,7 +268,7 @@ public class StudentDemo implements commands {
                 String city = scanner.nextLine();
 
                 int age = Integer.parseInt(ageStr);
-                Student student = new Student(name, surnam, age, phoneNumber, city, lesson,currentUser);
+                Student student = new Student(name, surnam, age, phoneNumber, city, lesson,currentUser,new Date());
                 studentStorage.add(student);
                 System.out.println("thank you,student added");
             } catch (LessonNotFoundException e) {

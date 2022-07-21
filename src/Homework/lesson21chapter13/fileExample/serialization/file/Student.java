@@ -1,30 +1,25 @@
-package classwork.Students.modul;
+package Homework.lesson21chapter13.fileExample.serialization.file;
 
+import classwork.Students.modul.Lesson;
+import classwork.Students.modul.User;
 
-import java.util.Date;
+import java.io.Serializable;
 
-import static classwork.Students.util.DateUtil.dateToString;
-
-public class Student {
+public class Student implements Serializable {
     private String name;
     private String surname;
-    private int age;
+    private transient int  age;
     private String phoneNumber;
     private String city;
-    private Lesson lesson;
-    private User registeredUser;
-    private Date registerDate;
 
-    public Student(String name, String surname, int age, String phoneNumber, String city,Lesson lesson,
-                   User registeredUser,Date registerDate) {
+
+    public Student(String name, String surname, int age, String phoneNumber, String city) {
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.phoneNumber = phoneNumber;
         this.city = city;
-        this.lesson=lesson;
-        this.registeredUser=registeredUser;
-        this.registerDate=registerDate;
+
     }
 
     public Student() {
@@ -70,23 +65,6 @@ public class Student {
         this.city = city;
     }
 
-    public Lesson getLesson() {
-        return lesson;
-    }
-
-    public void setLesson(Lesson lesson) {
-        this.lesson = lesson;
-    }
-
-
-    public User getRegisteredUser() {
-        return registeredUser;
-    }
-
-    public void setRegisteredUser(User registeredUser) {
-        this.registeredUser = registeredUser;
-    }
-
     @Override
     public String toString() {
         return "Student{" +
@@ -94,10 +72,6 @@ public class Student {
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", city='" + city + '\'' +
-                ", lesson='" + lesson + '\'' +
-                ", resgisteredUser='" + registeredUser + '\'' +
-                ", registerDate='" + dateToString(registerDate)+ '\'' +
-                '}';
+                ", city='" + city + '\'' +'}';
     }
 }
