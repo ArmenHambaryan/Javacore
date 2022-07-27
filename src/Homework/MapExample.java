@@ -10,12 +10,16 @@ public class MapExample {
     public static void main(String[] args) {
         Map<Integer, String> stringMap = new HashMap<>();
 
+
     }
 
     //Ունենք FootballTeamMember-ի լիստ, պետք է ստանանք HashMap որտեղ կեյ-ը կլինի խաղացողի համարը, իսկ վելյուն իրա անունը։
-    static Map<Integer, String> createFootballTeam(List<FootballTeamMember> members) {
+    public static  void  createFootballTeam(List<FootballTeamMember> members) {
+        Map<Integer, String> integerStringMap = new HashMap<>();
+        for (FootballTeamMember member : members) {
+            System.out.println(member.name+ member.number);
+        }
 
-        return (Map<Integer, String>) new HashMap<>().put(33,"Messi");
     }
 
 
